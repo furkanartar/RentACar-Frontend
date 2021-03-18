@@ -1,0 +1,14 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Brand Name</th>
+      <th>Full Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let rental of rentals">
+      <td>{{ rental.brandName }}</td>
+      <td>{{ rental.fullName }}</td>
+    </tr>
+  </tbody>
+</table>

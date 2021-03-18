@@ -1,0 +1,15 @@
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col" *ngFor="let car of cars">
+    <div class="card h-100">
+      <img src="https://i.pinimg.com/originals/fe/3e/d3/fe3ed3563ffe02cbc97eca245f28ea65.jpg" class="card-img-top" alt="arabaResmixd">
+      <div class="card-body">
+        <h5 class="card-title"> {{car.carName}} </h5>
+        <p class="card-text"> Yıl: {{car.modelYear}} </p>
+        <p class="card-text"> Renk: {{car.colorName}} </p>
+        <p class="card-text"> Günlük Fiyat: {{car.dailyPrice}} </p>
+        <p class="card-text"> {{car.description}} </p>
+        <button type="button" style="float: right;" class="btn btn-dark mx-right" routerLink="cars/{{car.carId}} " >Detaylar</button>
+      </div>
+    </div>
+  </div>
+</div>

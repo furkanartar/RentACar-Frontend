@@ -1,0 +1,10 @@
+<div class="d-flex justify-content-center">
+  <div *ngIf="dataLoaded == false" class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<ul class="list-group" *ngIf="dataLoaded == true">
+  <li class="list-group-item list-group-item-dark"> Renkler</li>
+  <li routerLink="cars/color/{{color.id}}" (click)="setCurrentColor(color)" [class]="getCurrentColorClass(color)" *ngFor="let color of colors"> {{color.colorName}} </li>
+</ul>
