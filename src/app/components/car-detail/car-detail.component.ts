@@ -12,18 +12,24 @@ import { CarImageService } from 'src/app/services/carImage/car-image.service';
 })
 export class CarDetailComponent implements OnInit {
   cars: CarDetail[];
-  carImages:CarImage[];
-  constructor(private carService: CarService, private CarImageService:CarImageService, private activatedRoute: ActivatedRoute) {}
+  carImages: CarImage[];
+  selectedCar: CarDetail;
+
+  constructor(
+    private carService: CarService,
+    private CarImageService: CarImageService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-  this.activatedRoute.params.subscribe(params=>{
-    if (params["carId"]) {
-      this.getCarDetailsByCarId(params["carId"]);
-      this.getCarImagesByCarId(params["carId"])
-    } else {
-      console.log("carId tespit edilemedi")
-    }
-  })
+    this.activatedRoute.params.subscribe((params) => {
+      if (params['carId']) {
+        this.getCarDetailsByCarId(params['carId']);
+        this.getCarImagesByCarId(params['carId']);
+      } else {
+        console.log('Lütfen veri girin');
+      }
+    });
   }
 
   getCarDetailsByCarId(carId: number) {
@@ -33,8 +39,12 @@ export class CarDetailComponent implements OnInit {
   }
 
   getCarImagesByCarId(carId: number) {
-    return this.CarImageService
-      .GetCarImagesByCarId(carId)
-      .subscribe((params) => (this.carImages = params.data));
+    return this.CarImageService.GetCarImagesByCarId(carId).subscribe(
+      (params) => (this.carImages = params.data)
+    );
+  }
+
+  test() {
+    console.log(this.selectedCar);
   }
 }

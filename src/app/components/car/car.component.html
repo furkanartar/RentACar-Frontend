@@ -1,14 +1,54 @@
+<div class="mb-3">
+  <label for="filterText" class="form-label">Ürün ara</label>
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filterText"
+    placeholder="arama ifadesi giriniz"
+  />
+</div>
+<div *ngIf="filterText.length > 2" class="alert alert-success">
+  {{ filterText }} aradınız.
+</div>
+
+<form >
+  <label for="brands">Araba markası seçiniz:</label>
+  <select name="brands" id="brands" style="margin-right: 10px" [(ngModel)]="brandId">
+    <option *ngFor="let brand of brands" value=" {{brand.id}} ">{{ brand.brandName }}</option>
+  </select>
+
+  <label for="colors">Renk seçiniz:</label>
+  <select name="colors" id="colors" style="margin-right: 10px" [(ngModel)]="colorId">
+    <option *ngFor="let color of colors"  value="{{ color.id }}">{{ color.colorName }}</option>
+  </select>
+
+  <input type="submit" value="Filtrele" routerLink="cars/{{brandId}}/{{colorId}}"/>
+</form>
+
+
 <div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col" *ngFor="let car of cars">
+  <div class="col" *ngFor="let car of cars | filterPipe: filterText">
     <div class="card h-100">
-      <img src="https://i.pinimg.com/originals/fe/3e/d3/fe3ed3563ffe02cbc97eca245f28ea65.jpg" class="card-img-top" alt="arabaResmixd">
+      <img
+        src="https://i.pinimg.com/originals/fe/3e/d3/fe3ed3563ffe02cbc97eca245f28ea65.jpg"
+        class="card-img-top"
+        alt="arabaResmixd"
+      />
       <div class="card-body">
-        <h5 class="card-title"> {{car.carName}} </h5>
-        <p class="card-text"> Yıl: {{car.modelYear}} </p>
-        <p class="card-text"> Renk: {{car.colorName}} </p>
-        <p class="card-text"> Günlük Fiyat: {{car.dailyPrice}} </p>
-        <p class="card-text"> {{car.description}} </p>
-        <button type="button" style="float: right;" class="btn btn-dark mx-right" routerLink="cars/{{car.carId}} " >Detaylar</button>
+        <h5 class="card-title">{{ car.carName }}</h5>
+        <p class="card-text">Yıl: {{ car.modelYear }}</p>
+        <p class="card-text">Renk: {{ car.colorName }}</p>
+        <p class="card-text">Günlük Fiyat: {{ car.dailyPrice }}</p>
+        <p class="card-text">{{ car.description }}</p>
+        <button
+          type="button"
+          style="float: right"
+          class="btn btn-dark mx-right"
+          routerLink="cars/{{ car.carId }} "
+        >
+          Detaylar
+        </button>
       </div>
     </div>
   </div>
