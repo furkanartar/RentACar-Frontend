@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Rental } from 'src/app/models/entity/rental';
-import { RentalService } from 'src/app/services/rental/rental.service';
+import { RentalDetail } from 'src/app/models/dto/rentalDetail';
+import { RentalService } from 'src/app/services/rental.service';
 
 @Component({
   selector: 'app-rental',
@@ -8,7 +8,7 @@ import { RentalService } from 'src/app/services/rental/rental.service';
   styleUrls: ['./rental.component.css'],
 })
 export class RentalComponent implements OnInit {
-  rentals: Rental[] = [];
+  rentals: RentalDetail[] = [];
   
   constructor(private rentalService: RentalService) {}
 

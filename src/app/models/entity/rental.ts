@@ -1,4 +1,8 @@
-export interface Rental {
-  brandName: string;
-  fullName: string;
+export interface Rental{
+    id:number,
+    carId:number,
+    customerId:number,
+    rentDate:Date,
+    returnDate:Date,
+    enable:boolean
 }

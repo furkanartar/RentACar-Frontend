@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CarDetail } from 'src/app/models/dto/carDetail';
 import { CarImage } from 'src/app/models/entity/carImage';
-import { CarService } from 'src/app/services/car/car.service';
-import { CarImageService } from 'src/app/services/carImage/car-image.service';
+import { CarService } from 'src/app/services/car.service';
+import { CarImageService } from 'src/app/services/car-image.service';
 
 @Component({
   selector: 'app-car-detail',
@@ -13,7 +13,6 @@ import { CarImageService } from 'src/app/services/carImage/car-image.service';
 export class CarDetailComponent implements OnInit {
   cars: CarDetail[];
   carImages: CarImage[];
-  selectedCar: CarDetail;
 
   constructor(
     private carService: CarService,
@@ -42,9 +41,5 @@ export class CarDetailComponent implements OnInit {
     return this.CarImageService.GetCarImagesByCarId(carId).subscribe(
       (params) => (this.carImages = params.data)
     );
-  }
-
-  test() {
-    console.log(this.selectedCar);
   }
 }

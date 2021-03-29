@@ -5,10 +5,9 @@ import { CarDetail } from 'src/app/models/dto/carDetail';
 import { Brand } from 'src/app/models/entity/brand';
 import { CarImage } from 'src/app/models/entity/carImage';
 import { Color } from 'src/app/models/entity/color';
-import { BrandService } from 'src/app/services/brand/brand.service';
-import { CarService } from 'src/app/services/car/car.service';
-import { CarImageService } from 'src/app/services/carImage/car-image.service';
-import { ColorService } from 'src/app/services/color/color.service';
+import { BrandService } from 'src/app/services/brand.service';
+import { CarService } from 'src/app/services/car.service';
+import { ColorService } from 'src/app/services/color.service';
 
 @Component({
   selector: 'app-car',

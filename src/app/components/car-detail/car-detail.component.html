@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="">
+  <div >
     <span style="margin-right: 10px;" class="col-md-4" *ngFor="let carImage of carImages">
-      <img style="width: 300px;" src="https://localhost:44304{{carImage.imagePath}} " alt="Megan Guinan">
+      <img style="width: 300px;" src="https://localhost:44304{{carImage.imagePath}} " alt="Resim bulunamadı">
     </span>
   </div>
   <div class="card">
@@ -14,7 +14,7 @@
         <p class="card-text"> Günlük Fiyat: {{car.dailyPrice}} | currency </p>
         <p class="card-text"> {{car.description}} </p>
         <p class="card-text"><small class="text-muted">Last updated 10 mins ago</small></p>
-        <button type="submit" class="btn btn-dark mb-3">Kirala</button>
+        <button type="submit" class="btn btn-dark mb-3" routerLink="/rentals/add/{{car.carId}}">Kirala</button>
       </div>
     </div>
   </div>
