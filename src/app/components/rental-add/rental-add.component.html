@@ -3,13 +3,13 @@
     <div class="col-md-6" style="display: inline-block;">
       <app-car-detail></app-car-detail>
     </div>
-  
+
     <div class="col-md-6" style="display: inline-block;">
       <div class="card">
         <div class="card-header"><h5 class="title">Araba Kirala</h5></div>
         <div class="card-body">
           <form [formGroup]="rentalAddForm">
-  
+
             <div class="mb-3">
               <label for="customerId">Müşteri Id'niz</label>
               <div class="form-group">
@@ -22,13 +22,13 @@
                 />
               </div>
             </div>
-  
+
             <div class="mb-3">
               <label for="rentDate">Arabanın Kiralanacağı Tarih</label>
               <div class="form-group">
                 <input
                   type="date"
-                  min="2021-03-28" 
+                  min="2021-03-28"
                   id="rentDate"
                   formControlName="rentDate"
                   class="form-control"
@@ -36,18 +36,18 @@
                 />
               </div>
             </div>
-  
+
             <div class="mb-3">
               <label for="returnDate">Arabanın geri teslim edileceği tarih</label>
               <div class="form-group">
-                <input type="date" id="returnDate"formControlName="returnDate"class="form-control" min="2021-03-29" placeholder="returnDate"/>
+                <input type="date" id="returnDate" formControlName="returnDate" class="form-control" min="2021-03-29" placeholder="returnDate"/>
               </div>
             </div>
           </form>
         </div>
-  
+
         <div class="card-footer">
-          <button class="btn btn-fill btn-primary" (click)="addRental()" routerLink="/payments/{{carId}}">Ekle</button>
+          <button class="btn btn-fill btn-primary" (click)="addRental()" routerLink="/payments/{{carId}}">Kirala</button>
         </div>
       </div>
     </div>

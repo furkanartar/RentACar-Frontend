@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CarDetail } from 'src/app/models/dto/carDetail';
 import { CarImage } from 'src/app/models/entity/carImage';
-import { CarService } from 'src/app/services/car.service';
 import { CarImageService } from 'src/app/services/car-image.service';
+import {CarDetailService} from '../../services/car-detail.service';
+import {RentalService} from '../../services/rental.service';
 
 @Component({
   selector: 'app-car-detail',
@@ -11,12 +12,14 @@ import { CarImageService } from 'src/app/services/car-image.service';
   styleUrls: ['./car-detail.component.css'],
 })
 export class CarDetailComponent implements OnInit {
+
   cars: CarDetail[];
   carImages: CarImage[];
 
   constructor(
-    private carService: CarService,
-    private CarImageService: CarImageService,
+    private carDetailService:CarDetailService,
+    private carImageService: CarImageService,
+    private rentalService:RentalService,
     private activatedRoute: ActivatedRoute
   ) {}
 
@@ -32,13 +35,13 @@ export class CarDetailComponent implements OnInit {
   }
 
   getCarDetailsByCarId(carId: number) {
-    return this.carService
+    return this.carDetailService
       .getCarDetailsByCarId(carId)
       .subscribe((params) => (this.cars = params.data));
   }
 
   getCarImagesByCarId(carId: number) {
-    return this.CarImageService.GetCarImagesByCarId(carId).subscribe(
+    return this.carImageService.GetCarImagesByCarId(carId).subscribe(
       (params) => (this.carImages = params.data)
     );
   }

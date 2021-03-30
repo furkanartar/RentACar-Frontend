@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
-  FormControl,
   Validators,
 } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Rental } from 'src/app/models/entity/rental';
 import { RentalService } from 'src/app/services/rental.service';
+import {CarDetailService} from '../../services/car-detail.service';
 
 @Component({
   selector: 'app-rental-add',
@@ -19,12 +19,14 @@ export class RentalAddComponent implements OnInit {
   rentalAddForm: FormGroup;
   rentalModel: Rental;
   carId:number;
+  status: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
     private rentalService: RentalService,
+    private carDetailService:CarDetailService,
     private activatedRoute:ActivatedRoute,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
   ) {}
 
   ngOnInit(): void {
@@ -51,14 +53,14 @@ export class RentalAddComponent implements OnInit {
   addRental() {
     if (this.rentalAddForm.valid) {
       this.rentalModel = Object.assign({}, this.rentalAddForm.value);
-      this.rentalService.add(this.rentalModel).subscribe(
-        (response) => {
-          this.toastrService.success(response.message, "Başarılı. Ödeme bekleniyor.");
-        },
-        (responseError) => {
-          this.toastrService.error(responseError.message, 'Başarısız');
-        }
-      );
+        this.rentalService.add(this.rentalModel).subscribe(
+          (response) => {
+            this.toastrService.success(response.message,  "Başarılı. Ödeme bekleniyor.");
+          },
+          (responseError) => {
+            this.toastrService.error(responseError.error.message, 'Başarısız');
+          }
+        );
     } else {
       this.toastrService.error('Form eksik', 'Başarısız');
     }

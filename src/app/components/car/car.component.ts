@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AppRoutingModule } from 'src/app/app-routing.module';
 import { CarDetail } from 'src/app/models/dto/carDetail';
 import { Brand } from 'src/app/models/entity/brand';
 import { CarImage } from 'src/app/models/entity/carImage';
 import { Color } from 'src/app/models/entity/color';
 import { BrandService } from 'src/app/services/brand.service';
-import { CarService } from 'src/app/services/car.service';
 import { ColorService } from 'src/app/services/color.service';
+import {CarDetailService} from '../../services/car-detail.service';
 
 @Component({
   selector: 'app-car',
@@ -26,7 +25,7 @@ export class CarComponent implements OnInit {
   colorId: number;
 
   constructor(
-    private carService: CarService,
+    private carDetailService: CarDetailService,
     private activatedRoute: ActivatedRoute,
     private colorService: ColorService,
     private brandService: BrandService
@@ -52,7 +51,7 @@ export class CarComponent implements OnInit {
   }
 
   getCarDetailsByBrandIdandColorId(brandId: number, colorId: number) {
-    this.carService
+    this.carDetailService
       .getCarDetailsByBrandIdAndColorId(brandId, colorId)
       .subscribe((response) => {
         this.cars = response.data;
@@ -72,21 +71,21 @@ export class CarComponent implements OnInit {
   }
 
   getCarDetails() {
-    this.carService.getAllCarDetails().subscribe((response) => {
+    this.carDetailService.getAllCarDetails().subscribe((response) => {
       this.cars = response.data;
       this.dataLoaded = true;
     });
   }
 
   getCarsByBrand(brandId: number) {
-    this.carService.getCarsByBrand(brandId).subscribe((response) => {
+    this.carDetailService.getCarsByBrand(brandId).subscribe((response) => {
       this.cars = response.data;
       this.dataLoaded = true;
     });
   }
 
   getCarsByColor(colorId: number) {
-    this.carService.getCarsByColor(colorId).subscribe((response) => {
+    this.carDetailService.getCarsByColor(colorId).subscribe((response) => {
       this.cars = response.data;
       this.dataLoaded = true;
     });

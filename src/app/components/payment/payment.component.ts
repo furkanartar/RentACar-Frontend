@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
-  FormControl,
   Validators,
 } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Rental } from 'src/app/models/entity/rental';
 import { PaymentService } from 'src/app/services/payment.service';
@@ -31,9 +30,9 @@ export class PaymentComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
-      if (params['carId']) {
+      if (params.carId) {
         this.createCreditCardAddForm();
-        this.getPaymentMethodNotAddedByCarId(params['carId']);
+        this.getPaymentMethodNotAddedByCarId(params.carId);
       } else {
         this.toastrService.error(
           'Lütfen ödeme işlemini tekrar deneyin.',
@@ -59,7 +58,7 @@ export class PaymentComponent implements OnInit {
 
   add() {
     if (this.creditCardAddForm.valid) {
-      let creditCardModel = Object.assign({}, this.creditCardAddForm.value);
+      const creditCardModel = Object.assign({}, this.creditCardAddForm.value);
 
       if (this.result.length >= 0) {
         this.paymentService.Add(creditCardModel).subscribe(
