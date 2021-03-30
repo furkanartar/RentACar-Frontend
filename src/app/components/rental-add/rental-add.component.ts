@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormGroup,
-  FormBuilder,
-  Validators,
-} from '@angular/forms';
+import {FormGroup, FormBuilder, FormControl, Validators} from '@angular/forms';
 import {ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Rental } from 'src/app/models/entity/rental';

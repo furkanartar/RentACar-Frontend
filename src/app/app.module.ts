@@ -19,6 +19,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { FilterPipePipe } from './pipe/filter-pipe.pipe';
 import { RentalAddComponent } from './components/rental-add/rental-add.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { BrandAddComponent } from './components/brand-add/brand-add.component';
+import { ColorAddComponent } from './components/color-add/color-add.component';
+import { CarAddComponent } from './components/car-add/car-add.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { PaymentComponent } from './components/payment/payment.component';
     FilterPipePipe,
     RentalAddComponent,
     PaymentComponent,
+    BrandAddComponent,
+    ColorAddComponent,
+    CarAddComponent,
   ],
   imports: [
     BrowserModule,
