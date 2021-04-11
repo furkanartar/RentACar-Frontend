@@ -1,0 +1,60 @@
+<div class="content">
+  <div class="col-md-6" style="display: inline-block;">
+    <div class="card">
+
+      <div class="card-header">
+        <h5 class="title">Araba Ekle</h5>
+      </div><div class="card-body">
+
+      <form [formGroup]="carUpdateForm">
+        <div class="mb-3 ">
+          <label style="margin-bottom: 10px" for="brandId">Marka Id'si</label>
+          <div class="form-group">
+            <input type="number" id="brandId" formControlName="brandId" class="form-control" placeholder="5"/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label style="margin-bottom: 10px" for="colorId">Renk Id'si</label>
+          <div class="form-group">
+            <input type="number" id="colorId" formControlName="colorId" class="form-control" placeholder="5"/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label style="margin-bottom: 10px" for="carName">Araç Adı</label>
+          <div class="form-group">
+            <input type="text" id="carName" formControlName="carName" class="form-control" placeholder="Model S"/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label style="margin-bottom: 10px" for="modelYear">Model</label>
+          <div class="form-group">
+            <input type="number" id="modelYear" formControlName="modelYear" class="form-control" maxlength="4" placeholder="2021"/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label style="margin-bottom: 10px" for="dailyPrice">Günlük Fiyat</label>
+          <div class="form-group">
+            <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control" placeholder="799"/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label style="margin-bottom: 10px" for="description">Açıklama</label>
+          <div class="form-group">
+            <input type="text" id="description" formControlName="description" class="form-control" placeholder="Eşsiz deneyim..."/>
+          </div>
+        </div>
+      </form>
+
+      <div class="card-footer">
+        <button class="btn btn-fill btn-primary" (click)="updateCar()">Ekle</button>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</div>

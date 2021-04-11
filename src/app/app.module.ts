@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,11 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { BrandAddComponent } from './components/brand-add/brand-add.component';
 import { ColorAddComponent } from './components/color-add/color-add.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
+import { CarDetailEditComponent } from './components/car-detail-edit/car-detail-edit.component';
+import { ColorEditComponent } from './components/color-edit/color-edit.component';
+import { BrandEditComponent } from './components/brand-edit/brand-edit.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -40,12 +46,18 @@ import { CarAddComponent } from './components/car-add/car-add.component';
     BrandAddComponent,
     ColorAddComponent,
     CarAddComponent,
+    CarDetailEditComponent,
+    ColorEditComponent,
+    BrandEditComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    NgbModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({

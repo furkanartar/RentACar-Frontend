@@ -20,7 +20,7 @@ export class CarDetailComponent implements OnInit {
     private carDetailService:CarDetailService,
     private carImageService: CarImageService,
     private rentalService:RentalService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
   ) {}
 
   ngOnInit(): void {
@@ -41,8 +41,17 @@ export class CarDetailComponent implements OnInit {
   }
 
   getCarImagesByCarId(carId: number) {
+    console.log("selam knki")
     return this.carImageService.GetCarImagesByCarId(carId).subscribe(
-      (params) => (this.carImages = params.data)
+      (params) => {this.carImages = params.data, console.log(this.carImages)}
     );
+  }
+
+  getCurrentSliderImageClass(sliderImage: CarImage): string {
+    if (this.carImages[0] === sliderImage) {
+      return 'carousel-item active';
+    }
+
+    return 'carousel-item';
   }
 }

@@ -7,6 +7,7 @@ import { Color } from 'src/app/models/entity/color';
 import { BrandService } from 'src/app/services/brand.service';
 import { ColorService } from 'src/app/services/color.service';
 import {CarDetailService} from '../../services/car-detail.service';
+import {CarImageService} from '../../services/car-image.service';
 
 @Component({
   selector: 'app-car',
@@ -17,15 +18,17 @@ export class CarComponent implements OnInit {
   cars: CarDetail[] = [];
   colors: Color[];
   brands: Brand[];
-  carImage: CarImage;
+  carImages: CarImage[];
   dataLoaded = false;
 
   filterText: string = '';
   brandId: number;
   colorId: number;
+  path = "https://localhost:44304";
 
   constructor(
     private carDetailService: CarDetailService,
+    private carImageService:CarImageService,
     private activatedRoute: ActivatedRoute,
     private colorService: ColorService,
     private brandService: BrandService

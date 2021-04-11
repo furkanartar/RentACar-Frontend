@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  userLogged:boolean;
   constructor() { }
 
   ngOnInit(): void {
+    this.checkUserLogin();
   }
 
+  checkUserLogin(){
+    this.userLogged = true;
+  }
 }

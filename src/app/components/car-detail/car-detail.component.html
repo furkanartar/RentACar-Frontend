@@ -1,22 +1,19 @@
-<div class="container">
+<div class="card">
   <div >
     <span style="margin-right: 10px;" class="col-md-4" *ngFor="let carImage of carImages">
       <img style="width: 300px;" src="https://localhost:44304{{carImage.imagePath}} " alt="Resim bulunamadı">
     </span>
   </div>
-  <div class="card">
   <div class="row g-0" *ngFor="let car of cars">
-    <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title"> {{car.carName}} </h5>
         <p class="card-text"> Yıl: {{car.modelYear}} </p>
         <p class="card-text"> Renk: {{car.colorName}} </p>
-        <p class="card-text"> Günlük Fiyat: {{car.dailyPrice}} | currency </p>
+        <p class="card-text"> Günlük Fiyat: {{car.dailyPrice | currency}} </p>
         <p class="card-text"> {{car.description}} </p>
         <p class="card-text"><small class="text-muted">Last updated 10 mins ago</small></p>
-        <button type="submit" class="btn btn-dark mb-3" routerLink="/rentals/add/{{car.carId}}">Kirala</button>
+        <button type="submit" style="margin-right: 25px" class="btn btn-dark mb-3" routerLink="/rentals/add/{{car.carId}}">Kirala</button>
+        <button type="submit" class="btn btn-dark mb-3" routerLink="/cars/edit/{{car.carId}}">Düzenle</button>
       </div>
-    </div>
-  </div>
   </div>
 </div>

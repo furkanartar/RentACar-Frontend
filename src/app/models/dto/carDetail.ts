@@ -1,3 +1,5 @@
+import {CarImage} from '../entity/carImage';
+
 export interface CarDetail {
   carId:number;
   brandId:number;
@@ -8,4 +10,5 @@ export interface CarDetail {
   colorName: string;
   dailyPrice: number;
   description:string;
+  carImages:CarImage[];
 }
