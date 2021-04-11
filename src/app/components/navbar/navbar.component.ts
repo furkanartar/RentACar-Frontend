@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../../services/auth.service';
+import {LocalStorageService} from '../../services/local-storage.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-navbar',
@@ -7,14 +10,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  userLogged:boolean;
-  constructor() { }
+  isVerified: boolean = false;
+  userName:string
+  claim:string;
+
+  constructor(
+    private authService: AuthService,
+    private localStorageService: LocalStorageService,
+    private toastrService: ToastrService
+  ) {}
 
   ngOnInit(): void {
-    this.checkUserLogin();
+    this.IsUserVerified();
+    if(this.isVerified){
+      this.getUserName();
+      this.getUserClaim();
+    }
   }
 
-  checkUserLogin(){
-    this.userLogged = true;
+  IsUserVerified() {
+    if (this.authService.isAuthenticated()) {
+      this.isVerified = true;
+    } else {
+      this.isVerified = false;
+    }
+  }
+
+  getUserName() {
+    this.userName = this.localStorageService.getUserNameDecodeToken();
+  }
+
+  getUserClaim() {
+    this.claim = this.localStorageService.getClaimsDecodeToken();
+  }
+
+  logOut() {
+    this.localStorageService.removeLocalStorage("token");
+    this.toastrService.info("You logged out", "info");
+    this.ngOnInit();
   }
 }

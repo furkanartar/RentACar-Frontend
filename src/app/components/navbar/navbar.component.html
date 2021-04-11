@@ -12,25 +12,23 @@
         </ul>
 
 
-
-
-
-        <form *ngIf="userLogged">
+        <form *ngIf="!isVerified">
           <button style="margin: 20px" type="submit" class="btn btn-dark mb-3" routerLink="/login">Giriş yap</button>
           <button style="margin-top: 20px" type="submit" class="btn btn-dark mb-3" routerLink="/register">Kayıt ol</button>
         </form>
 
-        <div class="dropdown" *ngIf="!userLogged">
+        <div class="dropdown" *ngIf="isVerified">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            Kullanıcı adı
+            {{userName}}
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-
+            <li><a class="dropdown-item"> qq</a></li>
+          </ul>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li><a class="dropdown-item" routerLink="/user">Hesap bilgilerini düzenle</a></li>
           </ul>
+
         </div>
-
-
 
 
       </div>

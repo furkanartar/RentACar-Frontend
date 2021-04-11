@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import jwtDecode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -7,27 +8,46 @@ export class LocalStorageService {
 
   constructor() { }
 
-  set(key:string,data:any){
-    localStorage.setItem(key,data)
+  getLocalStorage(key:string)
+  {
+    return localStorage.getItem(key);
   }
 
-  remove(key:string){
-    localStorage.removeItem(key)
+  setLocalStorage(key:string, value:string)
+  {
+    return localStorage.setItem(key,value);
   }
 
-  get(key:string){
-    return localStorage.getItem(key)
+  removeLocalStorage(key:string)
+  {
+    return localStorage.removeItem(key);
   }
 
-  setToken(token:string){
-    localStorage.setItem("token",token)
+  getIdDecodeToken()
+  {
+    let token  = String(this.getLocalStorage("token"))
+    let id:number = Number(Object.values(jwtDecode(token))[0]);
+    return id;
   }
 
-  removeToken(){
-    localStorage.removeItem("token")
+  getMailDecodeToken()
+  {
+    let token  = String(this.getLocalStorage("token"))
+    let mail:string = String(Object.values(jwtDecode(token))[1]);
+    return mail;
   }
 
-  getToken(){
-    return localStorage.getItem("token")
+  getUserNameDecodeToken()
+  {
+    let token  = String(this.getLocalStorage("token"))
+    let name:string = String(Object.values(jwtDecode(token))[2]);
+    return name;
+  }
+
+  getClaimsDecodeToken()
+  {
+    let token  = String(this.getLocalStorage("token"))
+    let claim:string = String(Object.values(jwtDecode(token))[3]);
+    return claim;
   }
 }

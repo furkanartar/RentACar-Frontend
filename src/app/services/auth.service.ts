@@ -4,6 +4,7 @@ import { LoginModel } from '../models/dto/loginModel';
 import { SingleResponseModel } from '../models/response/singleResponseModel';
 import { TokenModel } from '../models/response/tokenModel';
 import {RegisterModel} from '../models/dto/registerModel';
+import {LocalStorageService} from './local-storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,25 +12,29 @@ import {RegisterModel} from '../models/dto/registerModel';
 export class AuthService {
 
   apiUrl = 'https://localhost:44304/api/auth/';
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient:HttpClient, private localStorageService:LocalStorageService) { }
 
-  login(loginModel:LoginModel){
-    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"login",loginModel)
+  login(loginModel: LoginModel) {
+    let newPath = this.apiUrl + '/auth/login';
+    return this.httpClient.post<SingleResponseModel<TokenModel>>(
+      newPath,
+      loginModel
+    );
   }
 
-  register(registerModel:RegisterModel){
-    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"register",registerModel)
+  register(registerModel: RegisterModel) {
+    let newPath = this.apiUrl + '/auth/register';
+    return this.httpClient.post<SingleResponseModel<TokenModel>>(
+      newPath,
+      registerModel
+    );
   }
 
-  isAuthenticated(){
-    if(localStorage.getItem("token")){
+  isAuthenticated() {
+    if (this.localStorageService.getLocalStorage('token')) {
       return true;
-    }
-    else{
+    } else {
       return false;
     }
   }
-
-
-
 }
