@@ -1,32 +1,21 @@
-# CarRental
-
-![8](https://user-images.githubusercontent.com/57921776/114321626-780a4900-9b24-11eb-97f2-20e4e96005de.png)![Uploading 9.png…]()
+# CarRental About
 
 
-
-
-
-
-
-
-
-
-
-
+![1](https://user-images.githubusercontent.com/57921776/114321644-89ebec00-9b24-11eb-8df0-8e7c793488eb.png)
+![2](https://user-images.githubusercontent.com/57921776/114321645-89ebec00-9b24-11eb-860c-ee4afbae082a.png)
+![3](https://user-images.githubusercontent.com/57921776/114321646-8a848280-9b24-11eb-996b-7e3753ab2767.png)
+![5](https://user-images.githubusercontent.com/57921776/114321648-8bb5af80-9b24-11eb-9ff7-3b8901484742.png)
+![6](https://user-images.githubusercontent.com/57921776/114321649-8ce6dc80-9b24-11eb-8551-da49321891f0.png)
+![7](https://user-images.githubusercontent.com/57921776/114321650-8d7f7300-9b24-11eb-87d6-7116cf68d177.png)
+![8](https://user-images.githubusercontent.com/57921776/114321654-8f493680-9b24-11eb-9c00-94278ce85044.png)
+![9](https://user-images.githubusercontent.com/57921776/114321656-8fe1cd00-9b24-11eb-89d8-8f3181e1fb38.png)
+![10](https://user-images.githubusercontent.com/57921776/114321658-92442700-9b24-11eb-986d-b74f513dc72b.png)
+![11](https://user-images.githubusercontent.com/57921776/114321659-92442700-9b24-11eb-8f47-11df9facfa8b.png)
 
 
 
 
-
-
-
-
-
-
-
-
-
-
+# Usage
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
 
