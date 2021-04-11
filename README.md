@@ -10,7 +10,7 @@
 ![8](https://user-images.githubusercontent.com/57921776/114321654-8f493680-9b24-11eb-9c00-94278ce85044.png)
 ![9](https://user-images.githubusercontent.com/57921776/114321656-8fe1cd00-9b24-11eb-89d8-8f3181e1fb38.png)
 ![10](https://user-images.githubusercontent.com/57921776/114321658-92442700-9b24-11eb-986d-b74f513dc72b.png)
-![11](https://user-images.githubusercontent.com/57921776/114321659-92442700-9b24-11eb-8f47-11df9facfa8b.png)
+![kayıt ol](https://user-images.githubusercontent.com/57921776/114321730-f0710a00-9b24-11eb-91f4-fcd6d609c985.png)
 
 
 
